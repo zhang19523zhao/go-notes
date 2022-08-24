@@ -10,7 +10,8 @@ import (
 
 func main() {
 	//注册服务
-	err := rpc.Register(&service.Calculator{})
+	//err := rpc.Register(&service.Calculator{})
+	err := rpc.RegisterName("zh", &service.Calculator{})
 	if err != nil {
 		log.Fatalln(err)
 	}
