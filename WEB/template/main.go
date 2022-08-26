@@ -74,10 +74,43 @@ func rangeStruct() {
 	}{"bob", 20})
 }
 
+func templageIfElese() {
+	//没有时为空，需要大写
+	tplText := "{{ if eq .Sex  1 }} 男 {{ else }}女 {{end}}"
+	//语法错误直接panic
+	tpl := template.Must(template.New("tpl").Parse(tplText))
+	//结构体
+	tpl.Execute(os.Stdout, struct {
+		Name string
+		Age  int
+		Sex  int
+	}{"bob", 20, 1})
+}
+
+func templateFor() {
+	//没有时为空，需要大写
+	tplText := `
+				{{ range .}}
+				{{ .Name }}-{{ .Age }} - {{ if eq .Sex 	1}}男{{ else }}女{{ end }}
+				{{ end }}
+	`
+
+	//语法错误直接panic
+	tpl := template.Must(template.New("tpl").Parse(tplText))
+	//结构体
+	tpl.Execute(os.Stdout, []struct {
+		Name string
+		Age  int
+		Sex  int
+	}{{"bob", 20, 1}, {"tom", 21, 2}})
+}
+
 func main() {
 	//textAndhtml()
 	//tplMust()
 	//rangeSlice()
 	//rangeMap()
-	rangeStruct()
+	//rangeStruct()
+	//templageIfElese()
+	templateFor()
 }
