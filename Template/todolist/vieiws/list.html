@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>R任务列表</title>
+</head>
+<body>
+    <a href="/add">新增</a>
+    <a href="/query">查询</a>
+    <a href="/delete">删除</a>
+    <a href="/modify">修改</a>
+    <table >
+        <thead>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Status</th>
+        </thead>
+        <tbody>
+            {{ range . }}
+            <tr>
+                <td> {{.Id}} </td>
+                <td> {{.Name}} </td>
+                <td> {{.Status}} </td>
+            {{ end }}
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>查询</title>
+    <form action="/query" method="post">
+        <label > 查询任务: </label> <input type="text" name="name" value=""> <br>
+        <label > 结果: </label>
+        <br>
+        <p>ID {{ .Id }}
+            任务名: {{ .Name }}
+            状态:  {{ .Status }}</p>
+        <input type="submit" value="查询">
+    </form>
+
+</head>
+<body>
+
+</body>
+</html>
